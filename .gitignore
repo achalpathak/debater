@@ -14,4 +14,4 @@ db.sqlite3
 venv
 settings.json
 src/users/migrations/*
-src/roles/migrations/*
+src/debates/migrations/*

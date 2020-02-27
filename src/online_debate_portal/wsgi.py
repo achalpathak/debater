@@ -1,5 +1,5 @@
 """
-WSGI config for debater project.
+WSGI config for online_debate_portal project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'debater.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'online_debate_portal.settings')
 
 application = get_wsgi_application()
