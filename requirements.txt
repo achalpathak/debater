@@ -1,0 +1,12 @@
+Package               Version
+--------------------- -------
+asgiref               3.2.3  
+Django                3.0.3  
+django-rest-framework 0.1.0  
+djangorestframework   3.11.0 
+pip                   20.0.2 
+PyJWT                 1.7.1  
+pytz                  2019.3 
+setuptools            45.2.0 
+sqlparse              0.3.0  
+wheel                 0.34.2 
