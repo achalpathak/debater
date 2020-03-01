@@ -25,7 +25,7 @@ SECRET_KEY = 'zlrg+u0!$00e$g@2z=9e5qj97(u65^1^22r%(9y(rijf^7fv*8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.8','0.0.0.0']
 
 
 # Application definition
@@ -49,7 +49,7 @@ ROOT_URLCONF = 'online_debate_portal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -61,6 +61,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'online_debate_portal.wsgi.application'
 
@@ -107,7 +108,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/

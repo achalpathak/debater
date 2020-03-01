@@ -15,7 +15,7 @@ class CheckAuthenticationMiddleware(object):
         return None
     
     def process_view(self, request, view_func, view_args, view_kwargs):
-        if view_func.__name__ == '_noauth':
+        if view_func.__name__ == '_noauth' or request.path.startswith(settings.STATIC_URL):
             return view_func(request, *view_args, **view_kwargs)
         else:
             try:

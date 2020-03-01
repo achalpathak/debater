@@ -5,10 +5,10 @@ from users.models import Users
 class Debates(models.Model):
     title = models.CharField(max_length = 255)
     description = models.CharField(max_length = 255)
-    winner = models.ForeignKey(Users, on_delete = models.CASCADE, null = True, blank = True, related_name = "winner_user")
+    winner = models.ForeignKey(Users, on_delete = models.SET_NULL, null = True, blank = True, related_name = "winner_user")
     status = models.BooleanField(default = True)
-    for_user = models.ForeignKey(Users, on_delete = models.CASCADE, null = True, blank = True, related_name = "for_user")
-    against_user = models.ForeignKey(Users, on_delete = models.CASCADE, null = True, blank = True, related_name = "against_user")
+    for_user = models.ForeignKey(Users, on_delete = models.SET_NULL, null = True, blank = True, related_name = "for_user")
+    against_user = models.ForeignKey(Users, on_delete = models.SET_NULL, null = True, blank = True, related_name = "against_user")
     is_created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
@@ -18,7 +18,7 @@ class DebatesPost(models.Model):
     debates = models.ForeignKey('Debates', on_delete = models.CASCADE)
     post = models.CharField(max_length = 255)
     side = models.CharField(max_length = 45)
-    debater = models.ForeignKey(Users, on_delete = models.CASCADE)
+    debater = models.ForeignKey(Users, null=True, blank=True, on_delete = models.SET_NULL)
     vote_up = models.IntegerField(default = 0)
     vote_downs = models.IntegerField(default = 0)
     is_created_at = models.DateTimeField(auto_now_add=True)
@@ -30,7 +30,7 @@ class DebatesPost(models.Model):
 class SuggestedDebates(models.Model):
     title = models.CharField(max_length = 255)
     description = models.CharField(max_length = 255)
-    debater = models.ForeignKey(Users, on_delete = models.CASCADE)
+    debater = models.ForeignKey(Users, null=True, blank=True, on_delete = models.SET_NULL)
     is_created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:

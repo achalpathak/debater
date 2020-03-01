@@ -24,6 +24,9 @@ class Command(BaseCommand):
             password = input('Enter password -> ')
         user = Users(first_name=first_name,last_name=last_name,email=email, password=make_password(password))        
         user.save()
-        admin_role = Roles(role="admin", user = user)
-        admin_role.save()
+        Roles.objects.bulk_create([
+            Roles(role="admin", user = user),
+            Roles(role="moderator", user = user),
+            Roles(role="debater", user = user),
+            ])
         print('<-// Administrator created. \\\->')
